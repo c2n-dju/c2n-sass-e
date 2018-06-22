@@ -1,0 +1,428 @@
+/*
+ *
+ * All stuff for page header
+ *
+ */
+
+@import "../mixins";
+
+header{
+
+    /*
+     * Brand and aside menus before main site menu
+     */
+    .pre-top-bar{
+        .wrapper{
+            width: 100%;
+            margin: 0;
+            padding: 0.5rem 0;
+            display: flex;
+            @include breakpoint(large) {
+                padding: 0;
+            }
+
+            .brand{
+                display: flex;
+                padding: 0 0.3rem 0 0.5rem;
+                align-items: center;
+                flex: auto;
+                @include breakpoint(large) {
+                    padding: 0 1rem;
+                }
+
+                .logo{
+                    margin: 0;
+                    flex: 0 0 auto;
+
+                    img{
+                        max-width: rem-calc(45px);
+                        @include breakpoint(medium) {
+                            max-width: rem-calc(55px);
+                        }
+                    }
+                }
+
+                .name{
+                    margin: 0 0 0 0.5rem;
+                    font-size: 0.9rem;
+                    font-weight: $global-weight-bold;
+                    color: $midnightblue5;
+                    line-height: 1.1;
+                    text-transform: uppercase;
+                    @include breakpoint(large) {
+                        margin: 0 0 0 1rem;
+                        font-size: 1rem;
+                    }
+                }
+            }
+
+            .aside{
+                display: none;
+                margin: 0;
+                flex: 2 0 auto;
+                justify-content: flex-end;
+                list-style-type: none;
+                @include breakpoint(medium) {
+                    display: flex;
+                }
+                @include breakpoint(xlarge) {
+                    padding-right: 4vw;
+                }
+
+                li{
+                    display: flex;
+                    align-items: center;
+
+                    a{
+                        font-size: 0.8rem;
+                        font-weight: $global-weight-bold;
+                        padding: 0.5rem 0.4rem;
+                        color: $midnightblue5;
+                        text-transform: uppercase;
+                        @include breakpoint(xlarge) {
+                            padding: 0.5rem 0.8rem;
+                        }
+                        @include breakpoint(xlarge) {
+                            padding: 0.5rem 1rem;
+                            font-size: 0.9rem;
+                        }
+
+                        img{
+                            max-width: rem-calc(50px);
+                            @include breakpoint(xlarge) {
+                                max-width: rem-calc(60px);
+                            }
+                        }
+                    }
+                }
+            }
+
+            .disposable{
+                display: none;
+                margin: 0;
+                flex: 0 0 auto;
+                list-style-type: none;
+                background: $midnightblue3;
+                @include breakpoint(large) {
+                    display: flex;
+                }
+
+                li{
+                    display: flex;
+                    align-items: center;
+                    text-transform: uppercase;
+
+                    a{
+                        display: flex;
+                        padding: 0.5rem 1.2rem;
+                        font-size: 1.1rem;
+                        color: $white;
+                        @include breakpoint(xlarge) {
+                            padding: 0.5rem 1.4rem;
+                            font-size: 1.2rem;
+                        }
+
+                        &:hover{
+                            color: darken($white, 15%);
+                        }
+                    }
+
+                    &.social,
+                    &.active{
+                        a{
+                            font-weight: $global-weight-bold;
+
+                            &:hover{
+                                color: $white;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /*
+     * Sandwich toggler only visible in mobile mode
+     */
+    @include breakpoint(medium down) {
+        .title-bar{
+            position: relative;
+            padding: 1rem;
+            color: $white;
+            background: $midnightblue3;
+
+            .title-bar-title{
+                margin-left: 1rem;
+                text-transform: uppercase;
+            }
+
+            // Alternate language selector
+            .language-selector{
+                position: absolute;
+                top: 0.5rem;
+                right: 0;
+
+                li{
+                    font-size: 1rem;
+                    color: $white;
+                    text-transform: uppercase;
+
+                    a{
+                        padding: 0.7rem;
+                        color: inherit;
+
+                        &:hover{
+                            color: darken($white, 15%);
+                        }
+                    }
+
+                    &.active{
+                        font-weight: $global-weight-bold;
+
+                        a{
+                            background: transparent;
+
+                            &:hover{
+                                color: $white;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /*
+     * Main site menu
+     */
+    #main-menu{
+        display: block;
+        padding: 0;
+        align-items: stretch;
+        @include breakpoint(large) {
+            display: flex;
+        }
+
+        // Search form
+        .form-container{
+            background: $midnightblue2;
+            @include breakpoint(large) {
+                display: flex;
+                order: 2;
+            }
+
+            form{
+                margin: 0;
+                padding: 0;
+                display: flex;
+
+                input[type="text"]{
+                    width: auto;
+                    max-width: calc(100% - 3rem);
+                    margin: 0;
+                    padding: 1rem;
+                    flex: 1 0 auto;
+                    height: auto;
+                    font-size: 0.9rem;
+                    color: $white;
+                    background: $midnightblue2;
+                    border: 0;
+                    @include breakpoint(large) {
+                        width: 100%;
+                        max-width: 6vw;
+                        margin: 0;
+                        padding: 0.2rem 1rem;
+                        flex: auto;
+                    }
+                    @include breakpoint(xlarge) {
+                        max-width: 12vw;
+                        padding: 0.4rem 1rem;
+                    }
+                    @include breakpoint(xxlarge) {
+                        padding: 0.5rem 1rem;
+                    }
+
+                    &::placeholder{
+                        color: $white;
+                    }
+
+                    &:focus{
+                        box-shadow: none;
+                    }
+                }
+
+                button{
+                    max-width: 3rem;
+                    padding: 0 0.3rem;
+                    flex: 0 0 3rem;
+                    font-size: 1.2rem;
+                    color: $white;
+                    background: $midnightblue2;
+                    border: 0;
+                    @include breakpoint(large) {
+                        flex: auto;
+                        max-width: none;
+                    }
+                    @include breakpoint(xxlarge) {
+                        padding: 0 1rem;
+                        font-size: 1.6rem;
+                    }
+                }
+            }
+        }
+
+        // Some global style for header menu in every mode
+        .menu{
+            li{
+                a{
+                    color: $white;
+
+                    &:hover{
+                        background: $midnightblue4;
+                    }
+                }
+            }
+        }
+
+        // Desktop mode menu
+        & > .menu{
+            order: 1;
+
+            // Horizontal menu
+            & > li{
+                & > a{
+                    padding: 1.5rem 1.5vw;
+                    font-size: 0.8rem;
+                    font-weight: $global-weight-bold;
+                    text-transform: uppercase;
+                    @include breakpoint(xxlarge) {
+                        padding: 1.5rem 2rem;
+                        font-size: 1rem;
+                    }
+                }
+
+                &.has-submenu{
+                    & > a{
+                        position: relative;
+
+                        &::after{
+                            @include icomoon-helper($icon-chevron-small-down);
+                            width: auto;
+                            height: auto;
+                            position: absolute;
+                            right: 0.4vw;
+                            top: calc(50% - 0.2rem);
+                            font-size: 0.7rem;
+                            border: 0;
+                            @include breakpoint(xxlarge) {
+                                top: calc(50% - 0.1rem);
+                            }
+                        }
+                    }
+                }
+
+                // Dropdown menus
+                .submenu{
+                    border-color: $midnightblue1;
+
+                    .is-dropdown-submenu{
+                        display: none;
+                    }
+
+                    a::after{
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        // Mark selected js added submenu parent item link
+        .selected > ul > .is-submenu-parent-item > a{
+            background: lighten($topbar-background, 5%) !important;
+        }
+
+        // Mobile mode menu
+        & > .is-drilldown{
+            .menu{
+                background: $topbar-background;
+
+                li{
+                    background: inherit;
+
+                    a{
+                        padding: 1.2rem 2rem 1.2rem 1rem;
+                        background: inherit;
+                    }
+
+                    & + li{
+                        border-top: 1px solid $midnightblue5;
+                    }
+
+                    // Visually marks current page and ancestors
+                    &.active{
+                        & > a{
+                            background: lighten($topbar-background, 5%);
+                        }
+                    }
+
+                    // Back button
+                    &.js-drilldown-back{
+                        a{
+                            position: relative;
+                            padding-left: 2rem;
+
+                            &::before{
+                                @include icomoon-helper($icon-chevron-small-left);
+                                width: auto;
+                                height: auto;
+                                position: absolute;
+                                left: 0.8rem;
+                                top: calc(50% - 0.5rem);
+                                border: 0;
+                            }
+                        }
+                    }
+                }
+            }
+
+            // For menu entries that have children
+            .is-drilldown-submenu-parent{
+                & > a{
+                    &::after{
+                        @include icomoon-helper($icon-chevron-small-right);
+                        width: auto;
+                        height: auto;
+                        position: absolute;
+                        right: 1rem;
+                        top: calc(50% - 0.3rem);
+                        border: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    /*
+     * Page bread crumbs
+     */
+    .breadcrumbs-container{
+        padding: 0.4rem 1rem;
+        color: $midnightblue5;
+        background: $white;
+
+        .breadcrumbs{
+            margin: 0;
+            color: inherit;
+
+            li{
+                color: inherit;
+                text-transform: none;
+
+                a{
+                    color: inherit;
+                }
+            }
+        }
+    }
+}

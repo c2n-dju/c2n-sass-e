@@ -1,0 +1,339 @@
+/*
+ * Masonry grids
+ */
+$content-bricks-base-item-width: 25% !default;
+$content-bricks-gutter-width: 0.5rem !default;
+$card-bricks-base-item-width: 33.3333% !default;
+$card-bricks-gutter-width: rem-calc(10px) !default;
+
+/*
+ * Brick with some content
+ */
+.content-bricks{
+    //padding: $content-bricks-gutter-width;
+
+    &.shadow{
+        margin: 1rem;
+        box-shadow: $global-box-shadow;
+    }
+
+    .content-bricks-grid{
+
+        @include clearfix;
+
+        // Item styles
+        .item {
+            float: left;
+            //padding: $content-bricks-gutter-width;
+            box-sizing: border-box;
+
+            & > .inner{
+                display: block;
+                position: relative;
+                border: 0;
+                box-sizing: border-box;
+
+                img{
+                    display: block;
+                    width: 100%;
+                    @include breakpoint(xlarge) {
+                        width: auto;
+                        height: 100%;
+                    }
+                }
+
+                .description{
+                    padding: 1rem 0.9rem;
+                    color: $midnightblue1;
+                    background-color: $white;
+                    position: relative;
+                    // Default behavior for small mobile only, triangle is
+                    // allways before description and tip to the top
+                    @include breakpoint(small only) {
+                        &::after{
+                            @include css-triangle(
+                                $triangle-size: 1rem,
+                                $triangle-color: $white,
+                                $triangle-direction: up
+                            );
+                            position: absolute;
+                            left: calc(50% - 1rem);
+                            top: -1rem;
+                        }
+                    }
+                    @include breakpoint(medium) {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                    }
+
+                    .title{
+                        font-size: 1rem;
+                        font-weight: $global-weight-bold;
+                        @include breakpoint(xlarge) {
+                            font-size: 1.25rem;
+                        }
+                    }
+
+                    .subtitle{
+                        font-size: 1rem;
+                        @include breakpoint(xlarge) {
+                            font-size: 1.25rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        /*
+        *Grid item widths
+        *
+        * Note: sizer is used to computate grid item adjustments
+        */
+
+        .item-sizer,
+        .item {
+            width: 100%;
+            @include breakpoint(large) {
+                width: $content-bricks-base-item-width;
+            }
+        }
+
+        .gutter-sizer{
+            width: $content-bricks-gutter-width;
+        }
+
+        // Take two horizontal cells and a single vertical cell, default is to
+        // align content at right and image at left
+        .item--format-2-1-left,
+        .item--format-2-1-right{
+            width: 100%;
+            @include breakpoint(large) {
+                width: $content-bricks-base-item-width * 2;
+            }
+
+            & > .inner{
+                img{
+                    @include breakpoint(medium) {
+                        width: 50%;
+                    }
+                }
+
+                // Default is to align content to the right
+                .description{
+                    @include breakpoint(medium) {
+                        position: absolute;
+                        top: 0;
+                        left: 50%;
+                        right: 0;
+                        bottom: 0;
+
+                        &::after{
+                            @include css-triangle(
+                                $triangle-size: 1rem,
+                                $triangle-color: $white,
+                                $triangle-direction: left
+                            );
+                            position: absolute;
+                            top: calc(50% - 1rem);
+                            left: -1rem;
+                            right: auto;
+                        }
+                    }
+                }
+            }
+        }
+
+        // Alternative 2x1 where content is aligned to the left
+        .item--format-2-1-right{
+            & > .inner{
+
+                @include breakpoint(medium) {
+                    img{
+                        margin: 0 0 0 50%;
+                    }
+                }
+
+                .description{
+                    @include breakpoint(medium) {
+                        left: 0;
+                        right: 50%;
+                        bottom: 0;
+
+                        &::after{
+                            @include css-triangle(
+                                $triangle-size: 1rem,
+                                $triangle-color: $white,
+                                $triangle-direction: right
+                            );
+                            position: absolute;
+                            top: calc(50% - 1rem);
+                            right: -1rem;
+                            left: auto;
+                        }
+                    }
+                }
+            }
+        }
+
+        // Take two horizontal cells and two vertical cells
+        .item--format-2-2{
+            width: 100%;
+            @include breakpoint(large) {
+                width: $content-bricks-base-item-width * 2;
+            }
+
+            & > .inner{
+
+                img{
+                    width: 100%;
+                }
+
+                .description{
+                    @include breakpoint(medium) {
+                        display: flex;
+                        position: absolute;
+                        top: 0;
+                        left: 50%;
+                        right: 0;
+                        bottom: 50%;
+
+                        &::after{
+                            @include css-triangle(
+                                $triangle-size: 1rem,
+                                $triangle-color: $white,
+                                $triangle-direction: left
+                            );
+                            position: absolute;
+                            top: calc(50% - 1rem);
+                            left: -1rem;
+                            right: auto;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/*
+ * Brick alike a title card
+ */
+.card-bricks{
+    //padding: $card-bricks-gutter-width;
+
+    .card-bricks-grid{
+
+        @include clearfix;
+
+        // Item styles
+        .item {
+            float: left;
+            //padding: $card-bricks-gutter-width;
+            box-sizing: border-box;
+
+            & > .inner{
+                display: block;
+                position: relative;
+                border: 0;
+                box-sizing: border-box;
+
+                img{
+                    display: block;
+                    width: 100%;
+                }
+
+                .content{
+                    margin: 0;
+                    display: flex;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    flex-direction: column;
+                    justify-content: center;
+                    background-color: rgba($midnightblue4, 0.7);
+                    font-size: 1.4rem;
+                    font-weight: $global-weight-bold;
+                    color: $white;
+                    line-height: 1.1;
+                    text-transform: uppercase;
+                    @include breakpoint(medium) {
+                        font-size: 0.95rem;
+                    }
+                    @include breakpoint(large) {
+                        font-size: 1.4rem;
+                    }
+
+                    a{
+                        display: block;
+                        position: relative;
+                        padding: 0.2rem 0 0.2rem 1.8rem;
+                        color: inherit;
+                        @include breakpoint(large) {
+                            padding: 0.2rem 0 0.2rem 2.8rem;
+                        }
+
+                        &::before{
+                            content: "";
+                            display: block;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            bottom: 0;
+                            width: 1rem;
+                            background-color: $white;
+                            @include breakpoint(large) {
+                                width: 2rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        /*
+        *Grid item widths
+        *
+        * Note: sizer is used to computate grid item adjustments
+        */
+        .item-sizer,
+        .item {
+            width: 100%;
+            @include breakpoint(medium) {
+                width: calc(#{$card-bricks-base-item-width} - #{$card-bricks-gutter-width});
+            }
+        }
+        // Add vertical gutter only for base item
+        .item {
+            margin-bottom: $card-bricks-gutter-width;
+        }
+        // Horizontal gutter
+        .gutter-sizer{
+            width: $card-bricks-gutter-width;
+        }
+
+        // Take one horizontal cells and a single vertical cell
+        .item--format-1-1{
+            width: 100%;
+            @include breakpoint(medium) {
+                width: calc(#{$card-bricks-base-item-width} - #{$card-bricks-gutter-width});
+            }
+        }
+
+        // Take two horizontal cells and two vertical cells
+        .item--format-2-1{
+            width: 100%;
+            @include breakpoint(medium) {
+                width: calc(#{$card-bricks-base-item-width * 2} - #{$card-bricks-gutter-width});
+            }
+        }
+
+        // Take three horizontal cells and two vertical cells
+        .item--format-3-1{
+            width: 100%;
+        }
+    }
+}

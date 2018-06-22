@@ -1,0 +1,188 @@
+/*
+ * Webfont for icons, font are commonly build from Icomoon service
+ */
+$icomoon-font-path: "../icomoon" !default;
+
+$icon-area: "\e90a";
+$icon-expertise: "\e90b";
+$icon-labo: "\e90c";
+$icon-people: "\e90d";
+$icon-research: "\e90e";
+$icon-researcher: "\e90f";
+$icon-support: "\e910";
+$icon-technician: "\e911";
+$icon-speech-bubble: "\e909";
+$icon-linkedin-square: "\e912";
+$icon-instagram: "\e900";
+$icon-twitter: "\e901";
+$icon-facebook-square: "\e902";
+$icon-chevron-small-up: "\e903";
+$icon-chevron-small-right: "\e904";
+$icon-chevron-small-left: "\e905";
+$icon-chevron-small-down: "\e906";
+$icon-magnifying-glass: "\e907";
+$icon-check-circle: "\e908";
+
+
+// Font directory url path, relative to the CSS file
+@font-face {
+    font-family: "icomoon";
+    src:  url("#{$icomoon-font-path}/icomoon.eot?tu6my4");
+    src:  url("#{$icomoon-font-path}/icomoon.eot?tu6my4#iefix") format("embedded-opentype"),
+        url("#{$icomoon-font-path}/icomoon.woff2?tu6my4") format("woff2"),
+        url("#{$icomoon-font-path}/icomoon.ttf?tu6my4") format("truetype"),
+        url("#{$icomoon-font-path}/icomoon.woff?tu6my4") format("woff"),
+        url("#{$icomoon-font-path}/icomoon.svg?tu6my4#icomoon") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"],
+[class*=" icon-"]{
+    @include icomoon-helper;
+
+    &.round{
+        display: inline-block;
+        width: 1.9rem;
+        height: 1.9rem;
+        line-height: 1.9rem;
+        text-align: center;
+        border: 1px solid $black;
+        border-radius: 5rem;
+
+        // According border color to text color
+        // @each $name, $color in $sveetoy-color-text-palette {
+        //     &.text-#{$name}{
+        //         border-color: $color !important;
+        //     }
+        // }
+    }
+}
+
+// Prepend text button with an icon from a class (without <i class="">)
+.button[class^="icon-"],
+.button[class*=" icon-"] {
+    font-family: inherit;
+
+    &::before{
+        @include icomoon-helper;
+        margin-right: rem-calc(5px);
+    }
+}
+
+// Icon Sizes
+.icon-2x{
+    font-size: 2em;
+}
+
+.icon-3x{
+    font-size: 3em;
+}
+
+.icon-4x{
+    font-size: 4em;
+}
+
+.iconstyle-block{
+    &::before{
+        display: block;
+    }
+}
+
+
+// Enabled icons
+.icon-area {
+  &::before {
+    content: $icon-area;
+  }
+}
+.icon-expertise {
+  &::before {
+    content: $icon-expertise;
+  }
+}
+.icon-labo {
+  &::before {
+    content: $icon-labo;
+  }
+}
+.icon-people {
+  &::before {
+    content: $icon-people;
+  }
+}
+.icon-research {
+  &::before {
+    content: $icon-research;
+  }
+}
+.icon-researcher {
+  &::before {
+    content: $icon-researcher;
+  }
+}
+.icon-support {
+  &::before {
+    content: $icon-support;
+  }
+}
+.icon-technician {
+  &::before {
+    content: $icon-technician;
+  }
+}
+.icon-speech-bubble {
+  &::before {
+    content: $icon-speech-bubble;
+  }
+}
+.icon-linkedin-square {
+  &:before {
+    content: $icon-linkedin-square;
+  }
+}
+.icon-instagram {
+  &::before {
+    content: $icon-instagram;
+  }
+}
+.icon-twitter {
+  &::before {
+    content: $icon-twitter;
+  }
+}
+.icon-facebook-square {
+  &::before {
+    content: $icon-facebook-square;
+  }
+}
+.icon-chevron-small-up {
+  &::before {
+    content: $icon-chevron-small-up;
+  }
+}
+.icon-chevron-small-right {
+  &::before {
+    content: $icon-chevron-small-right;
+  }
+}
+.icon-chevron-small-left {
+  &::before {
+    content: $icon-chevron-small-left;
+  }
+}
+.icon-chevron-small-down {
+  &::before {
+    content: $icon-chevron-small-down;
+  }
+}
+.icon-magnifying-glass {
+  &::before {
+    content: $icon-magnifying-glass;
+  }
+}
+.icon-check-circle {
+  &::before {
+    content: $icon-check-circle;
+  }
+}

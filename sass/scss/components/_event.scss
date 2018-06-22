@@ -1,0 +1,66 @@
+.event {
+    padding: 0.5rem 0.5rem 0.5rem 0;
+    display: table;
+}
+
+.event-date {
+    width: 4rem;
+    margin: 0 auto 1rem;
+    display: table-cell;
+    width: auto;
+    
+    .event-year {
+	margin: 0;
+	background: lightgray;
+	padding-top: 0.2rem;
+	padding-bottom: 0;
+	margin-bottom: -1.4rem;
+	text-align: left;
+    }
+    
+    .event-month {
+	margin: 0;
+	background: lightgray;
+	padding-top: 0.2rem;
+	padding-bottom: 0;
+	margin-bottom: -0.4rem;
+	text-align: center;
+	font-size: 1.2rem;
+    }
+    
+    .event-day {
+	margin: 0;
+	border: 1px solid lightgray;
+	padding: 0 2rem;
+	text-align: center;
+	font-size: 1.2em;
+    }    
+}
+
+.event-desc {
+    padding: 0 0 0 1rem;
+    text-align: left;
+    display: table-cell;
+    vertical-align: top;
+    
+    .event-desc-header {
+	margin: 0 0 0.5rem 0;
+	padding: 0;
+    }
+    
+    .event-desc-detail {
+	margin: 0 0 0.25rem;
+	padding: 0;
+    }
+    
+    .event-desc-time {
+	font-weight: bold;
+    }
+    
+    .rsvp.button {
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+	margin: 0;
+    }
+}
+

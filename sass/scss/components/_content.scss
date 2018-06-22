@@ -1,0 +1,892 @@
+/*
+ *
+ * Common stuff to every contents
+ *
+ */
+
+/*
+ * Ability to change font size for simple text element differently from global
+ * base font size
+ */
+p,
+li,
+dd,
+dt{
+    font-size: $global-paragraph-font-size;
+}
+
+
+/*
+ * Addons on titles
+ */
+[class^="title-"],
+[class*=" title-"] {
+    // Included font icon as a block before text
+    &.iconstyle-block{
+        &::before{
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+    }
+    // Included font icon colors
+    &.iconstyle-yellowgreen{
+        &::before{
+            color: $yellowgreen;
+        }
+    }
+}
+
+
+/*
+ * Rotated vertical pseudo element label
+ */
+[data-vertical-label]{
+    display: none;
+
+    @include breakpoint(1700px) {
+        display: block;
+        position: absolute;
+        top: 0.5rem;
+        left: 2rem;
+        color: $gray88;
+        font-size: 4vw;
+        line-height: 1;
+        font-weight: $global-weight-strong;
+        text-transform: uppercase;
+        transform: rotate(90deg);
+        transform-origin: top left;
+
+        &::before{
+            content: attr(data-vertical-label);
+            display: block;
+            letter-spacing: 2rem;
+            transform: rotate(-180deg);
+            transform-origin: 50%;
+        }
+    }
+
+    @include breakpoint(1720px) {
+        font-size: 6vw;
+
+        &::before{
+            letter-spacing: 2rem;
+        }
+    }
+}
+
+
+/*
+ * Button addons features
+ */
+button,
+.button{
+    &.round-n-arrow{
+        position: relative;
+        padding: 0.5rem 2.3rem 0.5rem 0.8rem;
+        height: 1.75rem;
+        font-size: 0.7rem;
+        font-weight: $global-weight-bold;
+        color: $midnightblue5;
+        line-height: 1;
+        text-transform: uppercase;
+        border: 1px solid $midnightblue5;
+        border-radius: 4rem;
+        background: transparent;
+
+        &::after{
+            @include icomoon-helper($icon-chevron-small-right);
+            display: inline-block;
+            position: absolute;
+            top: -1px;
+            bottom: -1px;
+            right: -1px;
+            padding: 0.55rem 0.5rem;
+            font-weight: $global-weight-bold;
+            border: 1px solid $midnightblue5;
+            border-radius: 4rem;
+        }
+
+        &:hover{
+            color: $white;
+            background: $midnightblue5;
+
+            &::after{
+                border-left-color: $white;
+            }
+        }
+
+        // Bold border and text
+        &.bold{
+            height: 1.85rem;
+            padding: 0.5rem 2.5rem 0.5rem 1rem;
+            border-width: rem-calc(2px);
+
+            &::after{
+                padding: 0.4rem 0.45rem;
+                top: rem-calc(-2px);
+                bottom: rem-calc(-2px);
+                right: rem-calc(-2px);
+                border-width: rem-calc(2px);
+            }
+        }
+
+        // Alternative with white border+text and transparent background
+        &.white{
+            color: $white;
+            border-color: $white;
+            background: transparent;
+
+            &::after{
+                border-color: $white;
+            }
+
+            &:hover{
+                color: $midnightblue5;
+                background: $white;
+
+                &::after{
+                    border-left-color: $midnightblue5;
+                }
+            }
+        }
+    }
+}
+
+.button-group{
+    .button{
+        // Restore "large" feature for buttons in groups, since button-group
+        // override it
+        &.large{
+            font-size: 1.25rem;
+            line-height: 1;
+        }
+    }
+
+    &.unmarged{
+        .button{
+            margin: 0 !important;
+        }
+    }
+}
+
+
+/*
+ * Tabs containing sliders
+ */
+.slick-tabs{
+    .tabs{
+        border: 0;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        @include breakpoint(medium) {
+            flex-wrap: nowrap;
+        }
+
+        li{
+            flex: 1 0 100%;
+            float: none;
+            position: relative;
+            @include breakpoint(medium) {
+                flex: auto;
+            }
+
+            a{
+                padding: 1.3rem 0.7rem;
+                font-size: 1rem;
+                font-weight: $global-weight-bold;
+                text-transform: uppercase;
+                text-align: center;
+                color: $white;
+                background: $midnightblue5;
+
+                &:hover{
+                    background: lighten($midnightblue5, 3%);
+                }
+
+                @include breakpoint(large) {
+                    padding: 1.5rem 1rem;
+                    font-size: 1.2rem;
+                }
+            }
+
+            &.is-active{
+                @include breakpoint(small only) {
+                    order: 99;
+                }
+
+                a{
+                    color: $white;
+                    background: $tomato3;
+
+                    &::after{
+                        @include css-triangle(
+                            $triangle-size: 1rem,
+                            $triangle-color: $tomato3,
+                            $triangle-direction: down
+                        );
+                        position: absolute;
+                        bottom: -1rem;
+                        left: calc(50% - 1rem);
+                    }
+
+                    &:hover{
+                        background: $tomato3;
+                    }
+                }
+            }
+        }
+    }
+
+    .tabs-content{
+        padding: 0;
+        border: 0;
+        color: inherit;
+        background: $gray92;
+
+        @include breakpoint(medium) {
+            padding: 1rem 0 0;
+        }
+
+        .tabs-panel {
+            padding: 0.8rem 0;
+
+            @include breakpoint(medium) {
+                padding: 1rem;
+            }
+        }
+    }
+
+    & + .cta-holder{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        @include breakpoint(medium) {
+            flex-wrap: nowrap;
+        }
+
+        .button{
+            margin: 0;
+            flex: auto;
+            float: none;
+            position: relative;
+            padding: 0.5625rem 1.125rem;
+            font-size: 1.25rem;
+            font-weight: $global-weight-bold;
+            line-height: 1;
+            text-transform: uppercase;
+            color: $white;
+            background: $midnightblue5;
+
+            &.is-active{
+                background: $tomato3;
+            }
+
+            &:not(.is-active):hover{
+                background: lighten($midnightblue5, 3%);
+            }
+        }
+    }
+}
+
+
+/*
+ * Page submenu using vertical menu accordion
+ */
+$page-submenu-arrow-width: 2.4rem;
+.page-submenu{
+    // Dont show submenu when topbar is in mobile mode
+    display: none;
+    @include breakpoint(large) {
+        display: block;
+    }
+
+    & > .parent{
+        margin: 0;
+
+        a{
+            width: 100%;
+            padding: 1.2rem;
+            color: $white;
+            font-weight: $global-weight-bold;
+            text-align: center;
+            text-transform: uppercase;
+            background: $midnightblue3;
+
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+
+    // First level
+    & > .accordion-menu{
+        // For items without subpages
+        & > :not(.is-accordion-submenu-parent){
+            & + li{
+                border-top: 1px solid $white;
+            }
+
+            & > a{
+                margin: 0;
+                padding: 1.2rem 1.2rem 1.2rem 3.8rem;
+                color: $white;
+                font-size: 1rem;
+                background: $lightskyblue5;
+                @include breakpoint(large) {
+                    padding: 1.2rem 2.5rem 1.2rem 3.8rem;
+                }
+
+                &:hover{
+                    text-decoration: underline;
+                }
+            }
+
+            &.is-current{
+                & > a{
+                    background: $midnightblue5;
+                }
+            }
+        }
+
+        // For items with subpages
+        & > .is-accordion-submenu-parent{
+
+            & + li{
+                border-top: 1px solid $white;
+            }
+
+            & > a{
+                margin: 0;
+                padding: 1.2rem;
+                color: $white;
+                font-size: 1rem;
+                background: $lightskyblue5;
+                @include breakpoint(large) {
+                    padding: 1.2rem 2.5rem 1.2rem 1.4rem;
+                }
+            }
+
+            &.is-current{
+                & > a{
+                    background: $midnightblue5;
+                }
+            }
+
+            // Second level
+            & > ul{
+                margin: 0;
+                padding: 0;
+                max-width: 100%;
+                flex: 1 0 100%;
+                list-style-type: none;
+                color: $white;
+                background: $midnightblue1;
+
+                & > li{
+                    & > a{
+                        padding: 0.5rem 0.2rem 0.5rem 2rem;
+                        font-size: 1rem;
+                        color: $white;
+                        @include breakpoint(large) {
+                            padding: 1rem 0.1rem 1rem 3rem;
+                        }
+
+                        &:hover{
+                            background: darken($midnightblue1, 5%);
+                        }
+                    }
+
+                    &.is-active > a{
+                        color: $white;
+                        background: lighten($midnightblue1, 5%);
+                    }
+                }
+            }
+
+            // For clickable entry
+            &.has-submenu-toggle{
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                font-size: 1rem;
+
+                & > .submenu-toggle{
+                    position: static;
+                    display: flex;
+                    width: auto;
+                    height: auto;
+                    flex: 0 0 $page-submenu-arrow-width;
+                    max-width: $page-submenu-arrow-width;
+                    justify-content: center;
+                    align-items: center;
+                    order: 1;
+                    background: $lightskyblue5;
+
+                    &::before{
+                        @include icomoon-helper($icon-chevron-small-up);
+                        color: $white;
+                        font-weight: $global-weight-bold;
+                        font-size: 1.1rem;
+                        text-align: center;
+                    }
+
+                    &[aria-expanded="true"]{
+                        &::before{
+                            content: $icon-chevron-small-down;
+                        }
+                    }
+
+                    // Disable default accordion component triangle arrow
+                    &::after{
+                        display: none;
+                        content: none;
+                    }
+                }
+
+                & > a{
+                    flex: 1 0 0%;
+                    order: 2;
+
+                    &:hover{
+                        text-decoration: underline;
+                    }
+                }
+
+                & > ul{
+                    order: 3;
+                    flex: 1 0 100%;
+                }
+
+                &.is-current{
+                    & > .submenu-toggle{
+                        background: $yellowgreen;
+
+                        &::before{
+                            content: $icon-chevron-small-left;
+                        }
+                    }
+                }
+            }
+
+            // For entry not clickable (just opening accordion)
+            &:not(.has-submenu-toggle){
+                background: $lightskyblue5;
+
+                & > a{
+                    padding: 0;
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    align-items: center;
+                    font-size: 1rem;
+                    background: $lightskyblue5;
+
+                    & > span{
+                        padding: 1.2rem;
+                        flex: 1 0 0%;
+                        color: $white;
+                        @include breakpoint(large) {
+                            padding: 1.2rem 2.5rem 1.2rem 1.4rem;
+                        }
+                    }
+
+                    &::before{
+                        @include icomoon-helper($icon-chevron-small-up);
+                        max-width: $page-submenu-arrow-width;
+                        flex: 0 0 $page-submenu-arrow-width;
+                        color: $white;
+                        font-weight: $global-weight-bold;
+                        font-size: 1.1rem;
+                        text-align: center;
+                    }
+
+                    // Disable default accordion component triangle arrow
+                    &::after{
+                        display: none;
+                        content: none;
+                    }
+                }
+
+                &[aria-expanded="true"]{
+                    & > a{
+                        &::before{
+                            content: $icon-chevron-small-down;
+                        }
+                    }
+                }
+
+                &.is-current{
+                    & > a{
+                        // Fake gradiant with plain colors to draw arrow case in green
+                        $fake-step: $page-submenu-arrow-width + rem-calc(1px);
+                        background: linear-gradient(to right, $yellowgreen, $yellowgreen $page-submenu-arrow-width, $midnightblue5 $fake-step, $midnightblue5);
+
+                        &::before{
+                            content: $icon-chevron-small-left;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/*
+ * A list of media objects
+ */
+.media-list{
+    // Row
+    .item{
+        @include breakpoint(medium) {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        // With default behavior, media take its original size and content
+        // take all remaining space
+        .media{
+            text-align: center;
+            @include breakpoint(medium) {
+                margin: 0;
+                flex: 0 0 auto;
+                align-self: flex-start;
+            }
+        }
+
+        .content{
+            @include breakpoint(medium) {
+                flex: 1 0;
+                padding-left: 1.5rem;
+            }
+        }
+
+        // Head row is not subject to flex behaviors
+        &.th{
+            display: block;
+            text-transform: uppercase;
+        }
+
+        // Divider between row
+        & + .item{
+            margin-top: 1.5rem;
+        }
+    }
+
+    // Grid feature classes to fit media to a percentage size
+    @include breakpoint(medium) {
+        &.tiny,
+        &.short,
+        &.middle{
+            .media img{
+                width: 100%;
+            }
+        }
+
+        &.tiny{
+            .th{
+                padding-left: calc(10% + 1.5rem);
+            }
+            .media{
+                width: 10%;
+            }
+        }
+
+        &.short{
+            .th{
+                padding-left: calc(15% + 1.5rem);
+            }
+            .media{
+                width: 15%;
+            }
+        }
+
+        &.middle{
+            .th{
+                padding-left: calc(20% + 1.5rem);
+            }
+            .media{
+                width: 20%;
+            }
+        }
+    }
+}
+
+
+/*
+ * Feature list columned on 50% width
+ */
+.feature-list-columns{
+    margin: 0;
+    list-style-type: none;
+    @include breakpoint(medium up) {
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+                column-count: 2;
+        -webkit-column-width: 50%;
+        -moz-column-width: 50%;
+                column-width: 50%;
+    }
+
+    li{
+        position: relative;
+        padding: 0.6rem 0 0.6rem 2.4rem;
+        @include breakpoint(medium up) {
+            -webkit-column-break-inside: avoid;
+                        page-break-inside: avoid;
+                            break-inside: avoid;
+        }
+
+
+        &::before{
+            @include icomoon-helper($icon-check-circle);
+            position: absolute;
+            left: 0;
+            color: $yellowgreen;
+            font-size: 1.6rem;
+        }
+    }
+}
+
+
+/*
+ * Feature list using flexbox
+ */
+.feature-list-flex{
+    margin: 0;
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+    li{
+        position: relative;
+        margin-top: 1.3rem;
+        padding: 0.4rem 2%;
+        text-align: center;
+        flex: 1 0 50%;
+        max-width: 50%;
+        // Restore font family overriden from "icon-***" directly on <li>
+        font-family: $body-font-family;
+        @include breakpoint(medium) {
+            margin-top: 1.8rem;
+            padding: 0.6rem;
+            flex: 1 0 25%;
+            max-width: 25%;
+        }
+        @include breakpoint(xlarge) {
+            margin-top: 1.8rem;
+            padding: 0.6rem 6%;
+            flex: 1 0 25%;
+            max-width: 25%;
+        }
+
+        p{
+            margin-bottom: 0;
+            line-height: 1.1;
+
+            &:not(.big){
+                text-transform: uppercase;
+            }
+
+            & + p{
+                margin-top: 0.5rem;
+            }
+        }
+
+        .big{
+            font-size: 1.5rem;
+            font-weight: $global-weight-bold;
+            @include breakpoint(large) {
+                font-size: 2rem;
+            }
+        }
+
+
+        &::before{
+            @include icomoon-helper();
+            display: block;
+            margin-bottom: 0.5rem;
+            color: $yellowgreen;
+            font-size: 3.5rem;
+            @include breakpoint(large) {
+                margin-bottom: 1rem;
+                font-size: 5.5rem;
+            }
+        }
+    }
+}
+
+
+/*
+ * A card with media aside content, with optional button group
+ * over media
+ */
+.card-media-aside{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .media{
+        display: flex;
+        flex: 1 0 100%;
+        max-width: 100%;
+        order: 2;
+        flex-direction: row;
+        align-items: flex-end;
+        @include breakpoint(medium) {
+            flex: 1 0 50%;
+            max-width: 50%;
+            order: 1;
+        }
+
+        .button-group{
+            display: flex;
+            margin: 0;
+            padding: 0.4rem 0.3rem;
+            flex: 0 0 100%;
+            flex-direction: row;
+            flex-wrap: wrap;
+
+            .button{
+                margin: 0.4rem;
+                flex: 1 0 calc(100% - 0.8rem);
+                max-width: calc(100% - 0.8rem);
+                flex-wrap: wrap;
+                border-radius: rem-calc(15px);
+                @include breakpoint(large) {
+                    flex: 1 0 calc(50% - 0.8rem);
+                    max-width: calc(50% - 0.8rem);
+                }
+            }
+        }
+    }
+
+    // Reverse media and content order so media come in first and content in
+    // last
+    &.reverse{
+        .media{
+            order: 2;
+        }
+        .content{
+            order: 1;
+        }
+    }
+
+    .content{
+        flex: 1 0 100%;
+        max-width: 100%;
+        order: 1;
+        @include breakpoint(medium) {
+            flex: 1 0 50%;
+            max-width: 50%;
+            order: 2;
+        }
+    }
+}
+
+
+/*
+ * Summary columns using flexbox
+ */
+.flex-summary{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .cell{
+        display: flex;
+        flex-direction: column;
+        flex: 1 0 100%;
+        max-width: 100%;
+        @include breakpoint(large) {
+            flex: 1 0 calc(50% - 2rem);
+            max-width: calc(50% - 2rem);
+            margin-right: 1rem;
+
+            &:nth-child(2n){
+                margin-right: 0;
+                margin-left: 1rem;
+            }
+        }
+
+        .head{
+            @include breakpoint(medium) {
+                display: flex;
+                height: rem-calc(165px);
+            }
+
+            .inner{
+                position: relative;
+                padding: 2rem;
+                flex: 0 0 100%;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                background: rgba($midnightblue5, 0.7);
+                @include breakpoint(medium) {
+                    display: flex;
+                    padding: 0 2.5rem 0 5rem;
+                }
+
+                p{
+                    margin: 0;
+                    font-size: 0.9rem;
+                    font-weight: $global-weight-bold;
+                    color: $white;
+                    line-height: 1.1;
+                    text-transform: uppercase;
+                    @include breakpoint(large) {
+                        font-size: 1.3rem;
+                    }
+                }
+
+                .button-holder{
+                    margin-top: 1rem;
+                    @include breakpoint(medium) {
+                        min-width: 7rem;
+                        margin-top: 0;
+                    }
+                }
+
+                // White square
+                &::before{
+                    content: "";
+                    display: none;
+                    position: absolute;
+                    top: calc(50% - 1.5rem);
+                    left: 2.5rem;
+                    width: 1.5rem;
+                    height: 3rem;
+                    background-color: $white;
+                    @include breakpoint(medium) {
+                        display: block;
+                    }
+                    @include breakpoint(large) {
+                        width: 2rem;
+                    }
+                }
+            }
+        }
+
+        .content{
+            position: relative;
+            padding: 2rem;
+            @include breakpoint(medium) {
+                padding: 3.8rem 4.2rem;
+
+                &::before{
+                    @include icomoon-helper($icon-speech-bubble);
+                    position: absolute;
+                    top: 4rem;
+                    left: 1rem;
+                    font-size: 1.8rem;
+                }
+            }
+        }
+    }
+}

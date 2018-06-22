@@ -1,0 +1,98 @@
+/*
+ *
+ * All stuff for page footer
+ *
+ */
+
+footer{
+
+    // Copyright, important links, etc..
+    .mentions{
+        .copyright{
+            text-align: center;
+            @include breakpoint(large) {
+                text-align: left;
+            }
+        }
+
+        .links{
+            text-align: center;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            @include breakpoint(large) {
+                padding-top: 0;
+                padding-bottom: 0;
+                text-align: right;
+            }
+
+            ul{
+                margin: 0;
+                list-style-type: none;
+
+                li{
+                    display: inline-block;
+
+                    & + li{
+                        &::before{
+                            content: "|";
+                            margin: 0 0.5rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Sitemap shortcut menu
+    .footer-menu{
+        .row{
+            // First level
+            & > ul{
+                margin: 0;
+                display: block;
+                list-style-type: none;
+
+                @include breakpoint(medium) {
+                    display: flex;
+                    flex-wrap: wrap;
+                }
+                @include breakpoint(xlarge) {
+                    flex-wrap: no-wrap;
+                }
+
+                & > li{
+                    margin: 1rem 0;
+
+                    @include breakpoint(medium) {
+                        margin: 1rem;
+                        flex: 1 0 calc(50% - 2rem);
+                        max-width: calc(50% - 2rem);
+                    }
+                    @include breakpoint(large) {
+                        flex: 1 0 calc(33.3333% - 2rem);
+                        max-width: calc(33.3333% - 2rem);
+                    }
+                    @include breakpoint(xlarge) {
+                        margin: 0 1rem;
+                        flex: 1 1 0%;
+                        max-width: none;
+                    }
+
+
+                    & > p{
+                        margin-bottom: 1.5rem;
+                        font-weight: $global-weight-bold;
+                        text-transform: uppercase;
+                    }
+
+                    // Second level
+                    & > ul{
+                        margin: 0;
+                        list-style-type: none;
+                    }
+                }
+            }
+        }
+    }
+
+}
