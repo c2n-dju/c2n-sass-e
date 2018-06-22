@@ -4,7 +4,7 @@
         "../../foundation-sites/scss",
         "../../Sveetoy/sources/sass/sveetoy"
     ],
-    "TARGET_PATH": "../emencia_c2n/static/emencia-c2n/css",
+    "TARGET_PATH": "../build",
     "OUTPUT_STYLES": "expanded",
     "SOURCE_COMMENTS": false,
     "SOURCE_MAP": false,
