@@ -12,6 +12,54 @@ header{
      * Brand and aside menus before main site menu
      */
     .pre-top-bar{
+        /*
+         * dju-structure class is a dirty workaroud by 'CSS incompetent' FP, similar to wrapper, but always visible
+	 */
+	.dju-structure{
+            width: 100%;
+            margin: 0;
+            padding: 0.5rem 0;
+            display: flex;
+            @include breakpoint(large) {
+                padding: 0;
+            }
+	    
+            display: flex;
+            margin: 0;
+            flex: 2 0 auto;
+            justify-content: flex-start;
+            list-style-type: none;
+            @include breakpoint(xlarge) {
+                padding-left: 4vw;
+            }
+
+            li{
+                display: flex;
+                align-items: center;
+
+                a{
+                    font-size: 0.8rem;
+                    font-weight: $global-weight-bold;
+                    padding: 0.5rem 0.4rem;
+                    color: $midnightblue5;
+                    text-transform: uppercase;
+                    @include breakpoint(xlarge) {
+                        padding: 0.5rem 0.8rem;
+                    }
+                    @include breakpoint(xlarge) {
+                        padding: 0.5rem 1rem;
+                        font-size: 0.9rem;
+                    }
+		    
+                    img{
+                        max-width: rem-calc(50px);
+                        @include breakpoint(xlarge) {
+                            max-width: rem-calc(60px);
+                        }
+                    }
+                }
+            }
+	}
         .wrapper{
             width: 100%;
             margin: 0;

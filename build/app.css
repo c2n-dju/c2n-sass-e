@@ -15988,6 +15988,72 @@ header {
      */
 }
 
+header .pre-top-bar {
+  /*
+         * dju-structure class is a dirty workaroud by 'CSS incompetent' FP, similar to wrapper, but always visible
+	 */
+}
+
+header .pre-top-bar .dju-structure {
+  width: 100%;
+  margin: 0;
+  padding: 0.5rem 0;
+  display: flex;
+  display: flex;
+  margin: 0;
+  flex: 2 0 auto;
+  justify-content: flex-start;
+  list-style-type: none;
+}
+
+@media print, screen and (min-width: 64em) {
+  header .pre-top-bar .dju-structure {
+    padding: 0;
+  }
+}
+
+@media screen and (min-width: 75em) {
+  header .pre-top-bar .dju-structure {
+    padding-left: 4vw;
+  }
+}
+
+header .pre-top-bar .dju-structure li {
+  display: flex;
+  align-items: center;
+}
+
+header .pre-top-bar .dju-structure li a {
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.5rem 0.4rem;
+  color: #17436a;
+  text-transform: uppercase;
+}
+
+@media screen and (min-width: 75em) {
+  header .pre-top-bar .dju-structure li a {
+    padding: 0.5rem 0.8rem;
+  }
+}
+
+@media screen and (min-width: 75em) {
+  header .pre-top-bar .dju-structure li a {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+header .pre-top-bar .dju-structure li a img {
+  max-width: 3.125rem;
+}
+
+@media screen and (min-width: 75em) {
+  header .pre-top-bar .dju-structure li a img {
+    max-width: 3.75rem;
+  }
+}
+
 header .pre-top-bar .wrapper {
   width: 100%;
   margin: 0;
