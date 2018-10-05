@@ -6,7 +6,7 @@
     ],
     "TARGET_PATH": "../build",
     "OUTPUT_STYLES": "expanded",
-    "SOURCE_COMMENTS": false,
-    "SOURCE_MAP": false,
+    "SOURCE_COMMENTS": true,
+    "SOURCE_MAP": true,
     "EXCLUDES": []
 }

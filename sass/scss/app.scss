@@ -8,7 +8,7 @@
 @include foundation-global-styles;
 @include foundation-grid;
 // @include foundation-flex-grid;
-@include foundation-xy-grid-classes;
+// @include foundation-xy-grid-classes;
 @include foundation-typography;
 @include foundation-button;
 @include foundation-forms;
@@ -71,6 +71,9 @@
 @import "components/depart.scss";
 
 
+@import "utilities";
+
+
 div.c2n-page {
 
     h2 {
@@ -82,7 +85,6 @@ div.c2n-page {
             color: rgb(255, 255, 255);
         }
     }
-
 
     div.placeholder-info2 {
     background: rgb(103, 128, 159);
@@ -175,5 +177,8 @@ div.c2n-page {
         font-size: 1em;
         }
     }
+    }
+    .text-emphatism {
+        font-style: italic;
     }
 }

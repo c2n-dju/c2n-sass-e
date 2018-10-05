@@ -13,6 +13,23 @@ pip install wheel
 pip install boussole
 ```
 
+Method 1:
+
+```bash
+cd submodules/c2n-sass-e/sass
+boussole compile
+```
+
+This will create ../build/app.css and ../build/app.map. Note that two static links are required:
+
+```bash
+cd ../../static/e/assets/css
+ln -s ../../../../submodules/c2n-sass-e/build/app.css
+ln -s ../../../../submodules/c2n-sass-e/build/app.map
+``` 
+
+Method 2:
+
 Make the links, after correct DJU_DIR setting
 
 ```bash

@@ -3,6 +3,7 @@
  */
 $icomoon-font-path: "../icomoon" !default;
 
+$icon-location: "\e913";
 $icon-area: "\e90a";
 $icon-expertise: "\e90b";
 $icon-labo: "\e90c";
@@ -91,6 +92,12 @@ $icon-check-circle: "\e908";
 
 
 // Enabled icons
+.icon-location {
+  &:before {
+    content: $icon-location;
+  }
+}
+
 .icon-area {
   &::before {
     content: $icon-area;

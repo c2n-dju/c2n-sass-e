@@ -78,6 +78,24 @@ $header-styles: (
   ),
 );
 
+// 27. Pagination
+// --------------
+
+//$pagination-font-size: rem-calc(14);
+//$pagination-margin-bottom: $global-margin;
+//$pagination-item-color: $black;
+//$pagination-item-padding: rem-calc(3 10);
+//$pagination-item-spacing: rem-calc(1);
+$pagination-radius: 5rem;
+//$pagination-item-background-hover: $light-gray;
+//$pagination-item-background-current: $primary-color;
+//$pagination-item-color-current: $white;
+//$pagination-item-color-disabled: $medium-gray;
+//$pagination-ellipsis-color: $black;
+//$pagination-mobile-items: false;
+//$pagination-mobile-current-item: false;
+//$pagination-arrows: true;
+
 // 55. Top Bar
 // -----------
 
@@ -346,4 +364,4 @@ $sv-row-larger-width: rem-calc(1328px);
 // A7. Sveetoys Flexbox
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 // Fleg grid cell sizes
-$sv-flex-grid-sizes: 20 25 30 33.3333 35 50 65 66.6666 70 75 80 100;
+$sv-flex-grid-sizes: 10 20 25 30 40 33.3333 35 50 60 65 66.6666 70 75 80 90 100;

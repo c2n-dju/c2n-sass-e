@@ -55,3 +55,168 @@ div.semin_app {
     }   
 
 }
+
+.semin-you-might-know {
+    background-color: transparent;
+    padding: 0 0;
+    border-left: 5px solid $midnightblue1;
+
+
+
+    .add-semin-section {
+        margin: 0rem 0 0;
+        padding-bottom: 1rem;
+        padding-top: 1rem;
+
+        .about-semin {
+            display: flex;
+            align-items: flex-start;
+
+            .about-semin-avatar {
+                padding-right: 0.5rem;
+                padding-left: 0;
+
+                .avatar-image {
+                    width: rem-calc(80);
+                    height: rem-calc(80);
+                    border-radius: 50%;
+                    border: 0.0625rem solid $medium-gray;
+                }
+            }
+        }
+
+
+    }
+
+    .view-more-semin {
+        margin: .7rem 0;
+
+        .view-more-text {
+            margin-bottom: 0;
+            text-align: center;
+
+            .view-more-link {
+                color: $primary-color;
+
+                &:hover,
+                &:focus {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+
+
+
+.about-semin-author {
+    flex: 1 0 0;
+
+    .author-infos {
+        color: $black;
+        margin: 0.375rem 0 0;
+        .text-emphatism {
+            color:$dark-gray;
+        }
+    }
+
+    .semin-date,
+    .author-mutual {
+        color: $dark-gray;
+        margin-bottom: 0;
+        font-size: 0.85em;
+    }
+}
+
+.semin-row-section {
+    @include flex-grid-row(null, 100%, 12);
+    justify-content: center;
+}
+
+.semin-row-section-inner {
+    @include flex-grid-column(12);
+    @include breakpoint(medium) {
+        @include flex-grid-column(12);
+    }
+    margin: 0;
+    li {
+        list-style-type: none;
+    }
+}
+
+.semin-row-section-header {
+    padding: 1.5rem 0;
+    margin: 0;
+    line-height: 1;
+}
+
+.semin-row {
+    display: flex;
+    flex-direction: column;
+    padding: 0rem 0;
+
+    @include breakpoint(medium) {
+        flex-direction: row;
+    }
+}
+
+.semin-row-img img {
+    width: 100%;
+
+    @include breakpoint(medium) {
+        max-width: none;
+        width: auto;
+    }
+}
+
+.semin-row-content {
+    color: $body-font-color;
+
+    .label {
+        background: yellowgreen;
+    }
+    @include breakpoint(medium) {
+        padding: 0 0 0 1.5rem;
+    }
+    .semin-more {
+        display: none;
+    }
+}
+
+.semin-row-content-header {
+    font-size: 1.5rem;
+}
+
+.semin-row-content-description {
+    font-size: 1rem;
+}
+
+.semin-row-content-author,
+.semin-row-content-time {
+    font-size: 0.875rem;
+    margin-bottom: 0;
+}
+
+.semin-row-content-author {
+    color: $dark-gray;
+    margin-top: 1rem;
+}
+
+
+.is-active {
+    .accordion-title {
+        border-bottom:0;
+    }
+    .accordion-content {
+        border-top:0;
+    }
+
+    .semin-row-content {
+        .semin-more  {
+            display: block;
+        }
+    }
+    .semin-row-content-author {
+        display: none;
+    }
+}
