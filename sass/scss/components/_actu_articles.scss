@@ -30,10 +30,9 @@
 
 .article-row-img img {
   width: 100%;
-
   @include breakpoint(medium) {
-    max-width: none;
     width: auto;
+    max-width: 200px;
   }
 }
 
@@ -75,7 +74,7 @@
   @include breakpoint(medium) {
     .article-row-content {
       order: 1;
-      width:100%;
+      width: 100%;
     }
 
     .article-row-img {

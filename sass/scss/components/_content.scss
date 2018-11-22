@@ -299,15 +299,6 @@ $page-submenu-arrow-width: 2.4rem;
 .page-submenu{
     // Dont show submenu when topbar is in mobile mode
     display: none;
-    &.always {
-        display: block;
-    }
-    &.medium {
-
-        @include breakpoint(medium) {
-            display: block;
-        }
-    }
     @include breakpoint(large) {
         display: block;
     }
@@ -898,11 +889,4 @@ $page-submenu-arrow-width: 2.4rem;
             }
         }
     }
-}
-
-.right-collumn {
-    @include breakpoint(small) {padding-right: 0rem}
-    @include breakpoint(medium) { padding-right: 0rem}
-    @include breakpoint(large) {padding-right: 1rem}
-    @include breakpoint(xlarge) {padding-right: 1.5rem}
 }

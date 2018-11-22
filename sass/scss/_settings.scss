@@ -20,9 +20,7 @@ $gray25: #404040;
 $gray88: #e0e0e0;
 $gray92: #ecebe9;
 $gray101: #fefefe;
-
 $font-family-lato: 'Lato', sans-serif;
-
 $global-width: rem-calc(1600); // modif. 1200
 $global-font-size: 16px;
 $global-weight-thin: 100;
@@ -34,17 +32,15 @@ $global-box-shadow: 0 0 0.8rem rgba($midnightblue1, 0.3);
 
 $global-paragraph-font-size: 0.9rem; // Addon
 
-
 // 2. Breakpoints
 // --------------
 $breakpoints: (
-  small: 0,
-  medium: 640px,
-  large: 1024px,
-  xlarge: 1200px,
-  xxlarge: 1600px,
+        small: 0,
+        medium: 640px,
+        large: 1024px,
+        xlarge: 1200px,
+        xxlarge: 1600px,
 );
-
 
 $breakpoint-classes: (small medium large xlarge xxlarge);
 
@@ -55,27 +51,26 @@ $large-up: unquote("screen and #{breakpoint(large)}");
 $xlarge-up: unquote("screen and #{breakpoint(xlarge)}");
 $xxlarge-up: unquote("screen and #{breakpoint(xxlarge)}");
 
-
 // 4. Base Typography
 // ------------------
 
 $header-styles: (
-  small: (
-    'h1': ('font-size': 30), // 24
-    'h2': ('font-size': 24), // 20
-    'h3': ('font-size': 20), // 19
-    'h4': ('font-size': 18),
-    'h5': ('font-size': 17),
-    'h6': ('font-size': 16),
-  ),
-  medium: (
-    'h1': ('font-size': 42), // 48
-    'h2': ('font-size': 34), // 40
-    'h3': ('font-size': 22), // 31
-    'h4': ('font-size': 20), // 25
-    'h5': ('font-size': 18), // 20
-    'h6': ('font-size': 16),
-  ),
+        small: (
+                'h1': ('font-size': 30), // 24
+                'h2': ('font-size': 24), // 20
+                'h3': ('font-size': 20), // 19
+                'h4': ('font-size': 18),
+                'h5': ('font-size': 17),
+                'h6': ('font-size': 16),
+        ),
+        medium: (
+                'h1': ('font-size': 42), // 48
+                'h2': ('font-size': 34), // 40
+                'h3': ('font-size': 22), // 31
+                'h4': ('font-size': 20), // 25
+                'h5': ('font-size': 18), // 20
+                'h6': ('font-size': 16),
+        ),
 );
 
 // 27. Pagination
@@ -102,141 +97,136 @@ $pagination-radius: 5rem;
 $topbar-background: $midnightblue1; // $light-gray;
 $topbar-unstack-breakpoint: small; // medium;
 
-
-
 // A0. Sveetoys component enabler
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 // Global include switcher
 $include-sv-classes: true;
 
-
 // A1. Sveetoys Query Ranges
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 // Common available breakpoints taken from Foundation breakpoints
 $sv-breakpoints: (
-    small: $small-up,
-    medium: $medium-up,
-    large: $large-up,
-    xlarge: $xlarge-up,
+        small: $small-up,
+        medium: $medium-up,
+        large: $large-up,
+        xlarge: $xlarge-up,
 );
-
 
 // A2. Sveetoys colors
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 $white-color-scheme: (
-    font-color: $midnightblue1,
-    background: $white,
+        font-color: $midnightblue1,
+        background: $white,
 );
 
 $black-color-scheme: (
-    font-color: $white,
-    background: $black,
+        font-color: $white,
+        background: $black,
 );
 
 $midnightblue1-color-scheme: (
-    font-color: $white,
-    link-color: $white,
-    background: $midnightblue1,
+        font-color: $white,
+        link-color: $white,
+        background: $midnightblue1,
 );
 
 $midnightblue2-color-scheme: (
-    font-color: $white,
-    link-color: $white,
-    background: $midnightblue2,
+        font-color: $white,
+        link-color: $white,
+        background: $midnightblue2,
 );
 
 $midnightblue3-color-scheme: (
-    font-color: $white,
-    link-color: $white,
-    background: $midnightblue3,
+        font-color: $white,
+        link-color: $white,
+        background: $midnightblue3,
 );
 
 $midnightblue4-color-scheme: (
-    font-color: $white,
-    link-color: $white,
-    background: $midnightblue4,
+        font-color: $white,
+        link-color: $white,
+        background: $midnightblue4,
 );
 
 $midnightblue5-alpha-color-scheme: (
-    font-color: $white,
-    link-color: $white,
-    background: rgba($midnightblue5, 0.7),
+        font-color: $white,
+        link-color: $white,
+        background: rgba($midnightblue5, 0.7),
 );
 
 $midnightblue5-color-scheme: (
-    font-color: $white,
-    link-color: $white,
-    background: $midnightblue5,
+        font-color: $white,
+        link-color: $white,
+        background: $midnightblue5,
 );
 
 $midnightblue5-bordered-color-scheme: (
-    font-color: $white,
-    link-color: $white,
-    background: $midnightblue5,
-    border: 1rem solid $midnightblue1,
+        font-color: $white,
+        link-color: $white,
+        background: $midnightblue5,
+        border: 1rem solid $midnightblue1,
 );
 
 $lightskyblue5-color-scheme: (
-    font-color: $gray1,
-    link-color: $gray1,
-    background: $lightskyblue5,
+        font-color: $gray1,
+        link-color: $gray1,
+        background: $lightskyblue5,
 );
 
 $tomato3-color-scheme: (
-    font-color: $white,
-    link-color: $white,
-    background: $tomato3,
+        font-color: $white,
+        link-color: $white,
+        background: $tomato3,
 );
 
 $yellowgreen-color-scheme: (
-    font-color: $white,
-    link-color: $white,
-    background: $yellowgreen,
+        font-color: $white,
+        link-color: $white,
+        background: $yellowgreen,
 );
 
 $gray92-color-scheme: (
-    font-color: $gray1,
-    link-color: $gray1,
-    background: $gray92,
+        font-color: $gray1,
+        link-color: $gray1,
+        background: $gray92,
 );
 
 $sv-colors-scheme-default: $white-color-scheme;
 
 $sv-colors-schemes: (
-    white: $white-color-scheme,
-    black: $black-color-scheme,
-    midnightblue1: $midnightblue1-color-scheme,
-    midnightblue2: $midnightblue2-color-scheme,
-    midnightblue3: $midnightblue3-color-scheme,
-    midnightblue4: $midnightblue4-color-scheme,
-    midnightblue5: $midnightblue5-color-scheme,
-    midnightblue5-alpha: $midnightblue5-alpha-color-scheme,
-    midnightblue5-bordered: $midnightblue5-bordered-color-scheme,
-    lightskyblue5: $lightskyblue5-color-scheme,
-    tomato3: $tomato3-color-scheme,
-    yellowgreen: $yellowgreen-color-scheme,
-    gray92: $gray92-color-scheme,
+        white: $white-color-scheme,
+        black: $black-color-scheme,
+        midnightblue1: $midnightblue1-color-scheme,
+        midnightblue2: $midnightblue2-color-scheme,
+        midnightblue3: $midnightblue3-color-scheme,
+        midnightblue4: $midnightblue4-color-scheme,
+        midnightblue5: $midnightblue5-color-scheme,
+        midnightblue5-alpha: $midnightblue5-alpha-color-scheme,
+        midnightblue5-bordered: $midnightblue5-bordered-color-scheme,
+        lightskyblue5: $lightskyblue5-color-scheme,
+        tomato3: $tomato3-color-scheme,
+        yellowgreen: $yellowgreen-color-scheme,
+        gray92: $gray92-color-scheme,
 );
 
 $sv-color-text-palette: (
-    white: $white,
-    black: $black,
-    midnightblue1: $midnightblue1,
-    midnightblue2: $midnightblue2,
-    midnightblue3: $midnightblue3,
-    midnightblue4: $midnightblue4,
-    lightskyblue5: $lightskyblue5,
-    yellowgreen: $yellowgreen,
-    tomato3: $tomato3,
-    gray25: $gray25,
-    gray88: $gray88,
-    gray92: $gray92,
-    gray101: $gray101,
+        white: $white,
+        black: $black,
+        midnightblue1: $midnightblue1,
+        midnightblue2: $midnightblue2,
+        midnightblue3: $midnightblue3,
+        midnightblue4: $midnightblue4,
+        lightskyblue5: $lightskyblue5,
+        yellowgreen: $yellowgreen,
+        tomato3: $tomato3,
+        gray25: $gray25,
+        gray88: $gray88,
+        gray92: $gray92,
+        gray101: $gray101,
 );
-
 
 // A3. Sveetoys typography
 // - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -247,38 +237,38 @@ $global-weight-strong: 900;
 
 // <small/> sizes
 $sv-smalls: (
-    small: 40%,
-    big: 60%,
-    large: 80%,
+        small: 40%,
+        big: 60%,
+        large: 80%,
 );
 
 // .underline features
 $sv-underline-thickness: (
-    thin: (
-        size: rem-calc(1px),
-        style: solid,
-    ),
-    normal: (
-        size: rem-calc(3px),
-        style: solid,
-    ),
-    bold: (
-        size: rem-calc(5px),
-        style: solid,
-    ),
+        thin: (
+                size: rem-calc(1px),
+                style: solid,
+        ),
+        normal: (
+                size: rem-calc(3px),
+                style: solid,
+        ),
+        bold: (
+                size: rem-calc(5px),
+                style: solid,
+        ),
 );
 $sv-underline-widths: (
-    tiny: 5%,
-    short: 15%,
-    normal: 40%, //default
-    large: 70%,
-    full: 100%,
+        tiny: 5%,
+        short: 15%,
+        normal: 40%, //default
+        large: 70%,
+        full: 100%,
 );
 $sv-underline-distances: (
-    far: 2rem,
-    near: 0.5rem,
-    normal: 1rem, //default
-    sticked: 0,
+        far: 2rem,
+        near: 0.5rem,
+        normal: 1rem, //default
+        sticked: 0,
 );
 $sv-underline-colors: $sv-color-text-palette;
 $sv-underline-default-color: $black;
@@ -289,50 +279,48 @@ $sv-hr-distances: $sv-underline-distances;
 $sv-hr-colors: $sv-underline-colors;
 $sv-hr-default-color: $sv-underline-default-color;
 
-
 // A4. Sveetoys spaces
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 // Defines default space sizes with their breakpoint values
 $sv-space-tiny: (
-    small: 0.5rem,
-    medium: 0.75rem,
-    large: 1rem,
-    xlarge: 1.5rem,
+        small: 0.5rem,
+        medium: 0.75rem,
+        large: 1rem,
+        xlarge: 1.5rem,
 ) !default;
 $sv-space-short: (
-    small: 1rem,
-    medium: 1.25rem,
-    large: 2rem,
-    xlarge: 2.5rem,
+        small: 1rem,
+        medium: 1.25rem,
+        large: 2rem,
+        xlarge: 2.5rem,
 ) !default;
 $sv-space-normal: (
-    small: 1.5rem,
-    medium: 2rem,
-    large: 3rem,
-    xlarge: 4rem,
+        small: 1.5rem,
+        medium: 2rem,
+        large: 3rem,
+        xlarge: 4rem,
 ) !default;
 $sv-space-large: (
-    small: 2rem,
-    medium: 3rem,
-    large: 4rem,
-    xlarge: 5rem,
+        small: 2rem,
+        medium: 3rem,
+        large: 4rem,
+        xlarge: 5rem,
 ) !default;
 $sv-space-wide: (
-    small: 3rem,
-    medium: 4.5rem,
-    large: 6rem,
-    xlarge: 9.6rem,
+        small: 3rem,
+        medium: 4.5rem,
+        large: 6rem,
+        xlarge: 9.6rem,
 ) !default;
 
 // Space scheme
 $sv-spaces: (
-    tiny: $sv-space-tiny,
-    short: $sv-space-short,
-    normal: $sv-space-normal,
-    large: $sv-space-large,
-    wide: $sv-space-wide,
+        tiny: $sv-space-tiny,
+        short: $sv-space-short,
+        normal: $sv-space-normal,
+        large: $sv-space-large,
+        wide: $sv-space-wide,
 ) !default;
-
 
 // Define button variables using default Foundation values
 $button-tny: rem-calc(10);
@@ -341,25 +329,22 @@ $button-med: rem-calc(16);
 $button-lrg: rem-calc(18);
 // Use button variables for .modest feature
 $sv-button-modests: (
-    tiny: $button-tny / 2,
-    small: $button-sml / 2,
-    medium: $button-med / 2,
-    large: $button-lrg / 2,
+        tiny: $button-tny / 2,
+        small: $button-sml / 2,
+        medium: $button-med / 2,
+        large: $button-lrg / 2,
 );
 // Button color scheme
 $sv-button-colors-schemes: $sv-colors-schemes;
-
 
 // A5. Sveetoys Boxes
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 $sv-boxes-thickness: $sv-underline-thickness;
 
-
 // A6. Sveetoys Grid
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 // Larger row width for xlarge screens and more
 $sv-row-larger-width: rem-calc(1328px);
-
 
 // A7. Sveetoys Flexbox
 // - - - - - - - - - - - - - - - - - - - - - - - - -
