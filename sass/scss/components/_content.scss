@@ -906,3 +906,8 @@ $page-submenu-arrow-width: 2.4rem;
     @include breakpoint(large) {padding-right: 1rem}
     @include breakpoint(xlarge) {padding-right: 1.5rem}
 }
+
+///thumbnail foundation bg
+.thumbnail {
+    background: $white;
+}
