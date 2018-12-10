@@ -17,10 +17,19 @@ $caption-font-size: .7rem;
   }
 }
 
-.flexible-article-image-left,.flexible-article-image-right {
+.flexible-article-image-right {
+  float: right;
+  margin: 0.5rem 0 0rem 1.2rem;
+  max-width: rem-calc(120);
+}
+
+.flexible-article-image-left {
   float: left;
   margin: 0.5rem 1.2rem 0 0;
   max-width: rem-calc(120);
+}
+.flexible-article-image-left,.flexible-article-image-right {
+
 
   .caption {
     font-size: $caption-font-size;
@@ -44,7 +53,3 @@ $caption-font-size: .7rem;
   }
 }
 
-.flexible-article-image-right {
-  float: right;
-  margin: 0.5rem 0 0rem 1.2rem;
-}

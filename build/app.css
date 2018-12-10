@@ -21536,9 +21536,18 @@ button.round-n-arrow.white:hover::after,
   }
 }
 
-/* line 88, scss/components/_actu_articles.scss */
-.article-header .media img {
-  width: 100%;
+@media print, screen and (min-width: 64em) {
+  /* line 88, scss/components/_actu_articles.scss */
+  .article-header .media {
+    height: 484px;
+  }
+  /* line 91, scss/components/_actu_articles.scss */
+  .article-header .media img {
+    width: 100%;
+    height: 100%;
+    object-position: center;
+    object-fit: cover;
+  }
 }
 
 /* line 2, scss/components/_flexible_articles.scss */
@@ -21563,45 +21572,46 @@ button.round-n-arrow.white:hover::after,
 }
 
 /* line 20, scss/components/_flexible_articles.scss */
-.flexible-article-image-left, .flexible-article-image-right {
+.flexible-article-image-right {
+  float: right;
+  margin: 0.5rem 0 0rem 1.2rem;
+  max-width: 7.5rem;
+}
+
+/* line 26, scss/components/_flexible_articles.scss */
+.flexible-article-image-left {
   float: left;
   margin: 0.5rem 1.2rem 0 0;
   max-width: 7.5rem;
 }
 
-/* line 25, scss/components/_flexible_articles.scss */
+/* line 34, scss/components/_flexible_articles.scss */
 .flexible-article-image-left .caption, .flexible-article-image-right .caption {
   font-size: 0.7rem;
 }
 
 @media screen and (min-width: 64em) {
-  /* line 28, scss/components/_flexible_articles.scss */
+  /* line 37, scss/components/_flexible_articles.scss */
   .flexible-article-image-left .thumbnail, .flexible-article-image-right .thumbnail {
     margin: 0;
   }
 }
 
 @media screen and (max-width: 39.9375em) {
-  /* line 20, scss/components/_flexible_articles.scss */
+  /* line 31, scss/components/_flexible_articles.scss */
   .flexible-article-image-left, .flexible-article-image-right {
     float: none;
     max-width: 100%;
     margin: 0;
   }
-  /* line 37, scss/components/_flexible_articles.scss */
+  /* line 46, scss/components/_flexible_articles.scss */
   .flexible-article-image-left .thumbnail, .flexible-article-image-right .thumbnail {
     width: 100%;
   }
-  /* line 40, scss/components/_flexible_articles.scss */
+  /* line 49, scss/components/_flexible_articles.scss */
   .flexible-article-image-left .thumbnail img, .flexible-article-image-right .thumbnail img {
     width: 100%;
   }
-}
-
-/* line 47, scss/components/_flexible_articles.scss */
-.flexible-article-image-right {
-  float: right;
-  margin: 0.5rem 0 0rem 1.2rem;
 }
 
 /* line 5, scss/components/_actu.scss */
