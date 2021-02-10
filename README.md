@@ -9,6 +9,7 @@ Install boussole inside a virtualenv
 ```bash
 python3 -m venv env
 source env/bin/activate
+pip install --upgrade pip
 pip install wheel
 pip install boussole
 ```
@@ -20,7 +21,10 @@ cd submodules/c2n-sass-e/sass
 boussole compile
 ```
 
-This will create ../build/app.css and ../build/app.map. Note that two static links are required:
+This will create ../build/app.css and ../build/app.map.
+
+
+After that, put or link app.css and app.map in a django static directory:
 
 ```bash
 cd ../../static/e/assets/css
@@ -39,7 +43,7 @@ ln -s $DJU_DIR/dju/submodules/foundation-sites
 ln -s $DJU_DIR/dju/submodules/Sveetoy
 ```
 
-Create a settings.json file
+Create a boussole.json file
 
 ```js
 {
